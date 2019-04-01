@@ -1,3 +1,5 @@
+// Paweł Kalisz tests
+
 package pl.test.phptravel;
 
 import org.openqa.selenium.By;
@@ -14,7 +16,7 @@ public class HomePage {
 	@FindBy(xpath = "//*[@id=\"body-section\"]/section/div[2]/div/div/div[2]/ul/li[3]/a")
 	WebElement toursBtn;
 	
-	@FindBy(css = "#s2id_autogen10 > a > span.select2-chosen")
+	@FindBy(id = "s2id_autogen5")
 	WebElement cityChoose;
 	
 	@FindBy(css = "#select2-drop > div > input")
@@ -29,7 +31,7 @@ public class HomePage {
 	@FindBy(css = "#adults")
 	WebElement guestBtn;
 	
-	@FindBy(css = "#s2id_tourtype > a")
+	@FindBy(id = "tourtype")
 	WebElement typeSelect;
 	
 	@FindBy(css = "#select2-drop > ul > li > div")
@@ -44,7 +46,7 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void goTours(String city, String date, String guests, String destination) {
+	public void goTours(String city, String date, String guests, String type) {
 		toursBtn.click();
 		cityChoose.click();
 		cityName.sendKeys(city);
@@ -56,8 +58,8 @@ public class HomePage {
 		Select guestsCount = new Select(driver.findElement(By.id("adults")));
 		guestsCount.selectByValue(guests);		
 		typeSelect.click();
-		typeSelect.sendKeys(destination);
-		typeConfirm.click();
+		Select typeSelect = new Select(driver.findElement(By.id("tourtype")));
+		typeSelect.selectByVisibleText(type);
 		submitBtn.click();
 	}
 

@@ -1,3 +1,5 @@
+// Paweł Kalisz tests
+
 package pl.test.phptravel;
 
 import org.junit.*;
@@ -16,7 +18,7 @@ public class HomePageTest {
 	@Test
 	public void openTest() {
 		HomePage op = new HomePage(driver);
-		op.goTours("London", "26/11/2019", "4", "Educational");
+		op.goTours("Hurghada Sunset Desert Safari", "26/11/2019", "4", "Educational");
 	}
 	
 	@After
