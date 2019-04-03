@@ -39,8 +39,7 @@ public class HomePage {
 	
 	@FindBy(css = "#tours > form > div.col-md-2.form-group.go-right.col-xs-12.search-button > button")
 	WebElement submitBtn;
-
-
+				
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -48,9 +47,9 @@ public class HomePage {
 
 	public void goTours(String city, String date, String guests, String type) {
 		toursBtn.click();
-		cityChoose.click();
-		cityName.sendKeys(city);
-		cityBtn.click();
+		//cityChoose.click();
+		//cityName.sendKeys(city);
+		//cityBtn.click();
 		dateBtn.click();
 		dateBtn.clear();
 		dateBtn.sendKeys(date);
@@ -61,6 +60,7 @@ public class HomePage {
 		Select typeSelect = new Select(driver.findElement(By.id("tourtype")));
 		typeSelect.selectByVisibleText(type);
 		submitBtn.click();
+		
 	}
 
 }

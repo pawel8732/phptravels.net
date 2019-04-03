@@ -4,26 +4,27 @@ package pl.test.phptravel;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import pl.test.phptravel.*;
 
-public class HomePageTest {
+public class TourBookingTest {
 
 	WebDriver driver;
 
 	@Before
 	public void open() {
-		driver = TravelTest.getDriver();
+		driver = PhpTravels.getDriver();
 	}
 
 	@Test
 	public void openTest() {
 		HomePage op = new HomePage(driver);
 		op.goTours("Hurghada Sunset Desert Safari", "26/11/2019", "4", "Educational");
+		TourSearch ts = new TourSearch(driver);
+		ts.filterTour();
 	}
 	
 	@After
 	public void close() {
-		TravelTest.sleep(2);
+		PhpTravels.sleep(5);
 		driver.close();
 	}
 
