@@ -20,11 +20,17 @@ public class TourBookingTest {
 		op.goTours("Hurghada Sunset Desert Safari", "26/11/2019", "4", "Educational");
 		TourSearch ts = new TourSearch(driver);
 		ts.filterTour();
+		BookingTour bt = new BookingTour(driver);
+		bt.bookNow("2", "1", "1");
+		bt.confirmBooking("Pawel", "Test", "pawel@pawel.com", "565777888", "Dluga 389/44", "No meal");
+		bt.extras();
+		bt.endBooking();
+		
 	}
 	
 	@After
 	public void close() {
-		PhpTravels.sleep(5);
+		PhpTravels.sleep(10);
 		driver.close();
 	}
 
